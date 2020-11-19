@@ -3,6 +3,7 @@ package com.chocozhao.jetpackmvvmandroid.viewmodel.request
 import androidx.lifecycle.MutableLiveData
 import com.chocozhao.jetpackmvvmandroid.app.network.apiService
 import com.chocozhao.jetpackmvvmandroid.data.model.bean.UserInfo
+import com.chocozhao.jetpackmvvmandroid.data.repository.request.HttpRequestCoroutine
 import me.hgj.jetpackmvvm.base.viewmodel.BaseViewModel
 import me.hgj.jetpackmvvm.ext.request
 import me.hgj.jetpackmvvm.state.ResultState
@@ -51,12 +52,12 @@ class RequestLoginRegisterViewModel : BaseViewModel() {
         })*/
     }
 
-    fun registerAndlogin(username: String, password: String) {
-//        request(
-//            { HttpRequestCoroutine.register(username, password) }
-//            , loginResult,
-//            true,
-//            "正在注册中..."
-//        )
+    fun registerAndLogin(username: String, password: String) {
+        request(
+            { HttpRequestCoroutine.register(username, password) }
+            , loginResult,
+            true,
+            "正在注册中..."
+        )
     }
 }
